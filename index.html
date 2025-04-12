@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Flexbox and Grid Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar (Flexbox) */
+    .navbar {
+      background-color: #333;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .navbar .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .navbar ul li a:hover {
+      color: #ddd;
+    }
+
+    /* Main Grid Layout */
+    .container {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "main sidebar"
+        "footer footer";
+      grid-template-columns: 3fr 1fr;
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    header {
+      grid-area: header;
+      background-color: #f4f4f4;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    main {
+      grid-area: main;
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    aside {
+      grid-area: sidebar;
+      background-color: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    footer {
+      grid-area: footer;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    /* Responsive Design with Media Queries */
+
+    /* Tablet (max-width: 768px) */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-areas:
+          "header"
+          "main"
+          "sidebar"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+
+      .navbar ul {
+        gap: 1rem;
+      }
+
+      .navbar ul li a {
+        font-size: 0.9rem;
+      }
+
+      header, main, aside, footer {
+        padding: 1rem;
+      }
+    }
+
+    /* Mobile (max-width: 480px) */
+    @media (max-width: 480px) {
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .container {
+        margin: 1rem;
+        gap: 1rem;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      main, aside {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">Logo</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <header>
+      <h1>Welcome to Our Website</h1>
+      <p>This is a responsive layout using Flexbox and Grid.</p>
+    </header>
+
+    <main>
+      <h2>Main Content</h2>
+        <p>This is a sample webpage designed with purely html and css. No js was included.</p>
+    </main>
+
+    <aside>
+      <h3>Sidebar</h3>
+      <p>Additional information or links can go here.</p>
+      <ul>
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>
+        <li><a href="#">Link 3</a></li>
+      </ul>
+    </aside>
+
+    <footer>
+      <p>&copy; 2025 Responsive Design. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
